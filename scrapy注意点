@@ -1,0 +1,23 @@
+
+
+
+#使用pipeline，要开启settings中的ITEM_PIPELINES
+#多个pipeline的作用，不同的pipeline处理不同的item内容，一个爬虫项目包含多个爬虫，一个spider可能做不同的操作，比如存入不同的数据库
+# pipeline的权重越小，优先级越高，pipeline中的process_item方法名不能改为其他名称
+
+scrapy中log日志配置
+LOG_LEVEL = "WARNING"
+LOG_FILE = "./log.log"  #加这个log日志会显示在当前路径的log.log文件中,不会在终端显示，不加的话会在终端显示
+
+
+普通项目log配置
+import logging
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                    datefmt='%a, %d %b %Y %H:%M:%S',
+                    filename='test.log',
+                    filemode='w')
+
+实例化一个log对象 logger = logging.getLogger(__name__)
+
+在任何py文件中调用loggeer即可
